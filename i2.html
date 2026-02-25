@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GMT Navbar - Fixed Mobile Scroll</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            overflow-x: hidden; /* ⭐ FIX: Horizontal scroll band kiya */
+            width: 100%;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* ===== TOP HEADER ===== */
+        .top-header {
+            background: #f4f4f4;
+            padding: 15px 0;
+        }
+
+        .header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap; /* ⭐ FIX: Wrap for safety */
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-section img {
+            width: 300px;
+            max-width: 100%; /* ⭐ FIX: Mobile me image compress */
+            margin-right: 15px;
+        }
+
+        .contact-section {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            flex-wrap: wrap; /* ⭐ FIX: Wrap in small screens */
+        }
+
+        .info-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-box i {
+            color: #e74c3c;
+        }
+
+        .quote-btn {
+            background: #2c3e50;
+            color: #fff;
+            padding: 10px 18px;
+            text-decoration: none;
+            font-size: 13px;
+            white-space: nowrap; /* ⭐ FIX: Button text ek line me */
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            background: #2c3e50;
+        }
+
+        .nav-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            padding: 15px 20px;
+        }
+
+        .nav-links li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .nav-links li a:hover {
+            color: #e74c3c;
+        }
+
+        .nav-links li.active a {
+            color: #e74c3c;
+        }
+
+        .menu-toggle {
+            display: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .mobile-logo {
+            display: none;
+        }
+
+        .mobile-logo img {
+            width: 50px;
+        }
+
+        /* ===== FIXED NAVBAR POSITION ===== */
+        .navhd {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 999;
+        }
+
+        /* ===== MOBILE RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .top-header {
+                display: none;
+            }
+
+            .mobile-logo {
+                display: block;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background: #2c3e50;
+                flex-direction: column;
+                display: none;
+                z-index: 999;
+            }
+
+            .nav-links li {
+                text-align: center;
+                border-top: 1px solid rgba(255,255,255,0.1);
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        .about-section {
+            padding: 80px 0;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-slider {
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-slider::before {
+            content: "";
+            position: absolute;
+            bottom: -30px;
+            left: -30px;
+            width: 80%;
+            height: 80%;
+            background: #e74c3c;
+            z-index: 0;
+        }
+
+        .slides {
+            display: none;
+            position: relative;
+            z-index: 2;
+        }
+
+        .slides img {
+            width: 100%;
+            border-radius: 6px;
+            display: block;
+        }
+
+        .fade {
+            animation: fadeEffect 1s;
+        }
+
+        @keyframes fadeEffect {
+            from { opacity: 0.4; }
+            to { opacity: 1; }
+        }
+
+        .dots {
+            text-align: center;
+            margin-top: 15px;
+            position: relative;
+            z-index: 3;
+        }
+
+        .dot {
+            height: 10px;
+            width: 10px;
+            margin: 0 4px;
+            background-color: #999;
+            display: inline-block;
+            cursor: pointer;
+            border-radius: 2px;
+        }
+
+        .dot.active {
+            background-color: #e74c3c;
+        }
+
+        .about-content h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .about-content p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        .experience-wrapper {
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 30px;
+            padding: 20px 0;
+        }
+
+        .experience-wrapper::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 100%;
+            background: url('https://via.placeholder.com/100x50/ccc/000?text=line') repeat-x;
+            background-size: contain;
+            animation: scrollLine 10s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes scrollLine {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        .experience-box {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+        }
+
+        .exp-number {
+            font-size: 70px;
+            font-weight: 800;
+            color: #e74c3c;
+            line-height: 1;
+        }
+
+        .exp-divider {
+            width: 2px;
+            height: 60px;
+            background: #000;
+            margin: 0 15px;
+        }
+
+        .exp-text {
+            font-weight: 700;
+            letter-spacing: 2px;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        /* ===== SPECIALIZATION SECTION ===== */
+        .specialization-section {
+            background: #f8f8f8;
+            padding: 80px 0;
+        }
+
+        .section-title {
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 34px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap; /* ⭐ FIX: Mobile me wrap */
+        }
+
+        .section-title h2 span {
+            color: #e74c3c;
+        }
+
+        .title-lines {
+            position: relative;
+            width: 60px;
+            height: 2px;
+            background: #e74c3c;
+        }
+
+        .specialization-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .spec-box {
+            background: #f3f3f3;
+            padding: 40px 25px;
+            text-align: center;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+
+        .spec-icon {
+            width: 80px;
+            height: 80px;
+            background: #e74c3c;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 30px;
+            color: #fff;
+        }
+
+        /* ===== PRODUCTS SECTION ===== */
+        .products-section {
+            background: #f5f5f5;
+            padding: 80px 0;
+        }
+
+        .products-grid {
+            width: 90%;
+            max-width: 1200px;
+            margin: 40px auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .product-card {
+            background: #fff;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .product-image {
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 120%;
+            object-fit: cover;
+            transition: 4s ease;
+        }
+
+        .product-card:hover img {
+            transform: translateY(-15%);
+        }
+
+        .product-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #2f3e4e;
+        }
+
+        .product-name {
+            color: #fff;
+            text-decoration: none;
+            padding: 18px;
+            font-weight: 600;
+            font-size: 14px;
+            flex: 1;
+        }
+
+        .product-plus {
+            background: #e74c3c;
+            color: #fff;
+            text-decoration: none;
+            padding: 18px 22px;
+            font-size: 20px;
+            transition: 0.3s;
+        }
+
+        .all-products-btn {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .all-products-btn a {
+            position: relative;
+            display: inline-block;
+            padding: 14px 40px;
+            background: #2f3e4e;
+            color: #fff;
+            text-decoration: none;
+            letter-spacing: 3px;
+            font-size: 13px;
+            transition: 0.3s;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer-tagline {
+            background: #e74c3c;
+            text-align: center;
+            padding: 30px 10px;
+        }
+
+        .footer-tagline h2 {
+            color: #fff;
+            font-family: cursive;
+            font-size: 28px;
+            font-weight: normal;
+        }
+
+        .footer {
+            background: #dcdcdc;
+            padding: 50px 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        .footer-logo {
+            width: 160px;
+            max-width: 100%; /* ⭐ FIX */
+            margin-bottom: 15px;
+        }
+
+        .footer-col p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 8px;
+            width: 35px;
+            height: 35px;
+            color: #fff;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .social-icons a:nth-child(1) { background: #ff0000; }
+        .social-icons a:nth-child(2) { background: #3b5998; }
+        .social-icons a:nth-child(3) { background: #0077b5; }
+        .social-icons a:nth-child(4) { background: #1da1f2; }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            border-bottom: 1px dashed #aaa;
+            padding: 10px 0;
+        }
+
+        .footer-links li a {
+            text-decoration: none;
+            color: #000;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        /* ===== RESPONSIVE FIXES ===== */
+        @media (max-width: 992px) {
+            .specialization-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-slider::before {
+                display: none;
+            }
+
+            .exp-number {
+                font-size: 50px;
+            }
+
+            .specialization-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-tagline h2 {
+                font-size: 20px;
+            }
+
+            .section-title h2 {
+                font-size: 28px;
+            }
+
+            /* ⭐ FIX: Overflow rokne ke liye */
+            .container, .products-grid, .specialization-grid {
+                width: 100%;
+                overflow-x: hidden;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .specialization-grid {
+                grid-template-columns: 1fr;
+            }
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ======= TOP HEADER ======= -->
+<nav class="navhd">
+    <header class="top-header">
+        <div class="container header-flex">
+            <div class="logo-section">
+                <img src="https://via.placeholder.com/300x80/2c3e50/fff?text=GMT+MARINE" alt="Logo">
+            </div>
+            <div class="contact-section">
+                <div class="info-box">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <strong>INDIA</strong>
+                        <p>Juna Bander, Bhavnagar</p>
+                    </div>
+                </div>
+                <div class="info-box">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <strong>+91 9825209873</strong>
+                    </div>
+                </div>
+                <a href="#" class="quote-btn">REQUEST A QUOTE</a>
+            </div>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <div class="container nav-flex">
+            <div class="mobile-logo">
+                <img src="https://via.placeholder.com/50x50/2c3e50/fff?text=GMT" alt="Logo">
+            </div>
+            <div class="menu-toggle" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li class="active"><a href="#">HOME</a></li>
+                <li><a href="#">PRODUCTS</a></li>
+                <li><a href="#">WORKSHOP</a></li>
+                <li><a href="#">UPDATES</a></li>
+                <li><a href="#">CONTACT US</a></li>
+            </ul>
+        </div>
+    </nav>
+</nav>
+
+<div style="height: 120px;"></div> <!-- Spacer for fixed navbar -->
+
+<!-- ===== ABOUT SECTION ===== -->
+<section class="about-section">
+    <div class="container about-grid">
+        <div class="about-slider">
+            <div class="slides fade">
+                <img src="https://via.placeholder.com/600x400/ccc/000?text=Slide+1" alt="">
+            </div>
+            <div class="slides fade">
+                <img src="https://via.placeholder.com/600x400/999/000?text=Slide+2" alt="">
+            </div>
+            <div class="slides fade">
+                <img src="https://via.placeholder.com/600x400/666/000?text=Slide+3" alt="">
+            </div>
+            <div class="dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+        <div class="about-content">
+            <div class="experience-wrapper">
+                <div class="experience-box">
+                    <div class="exp-number">25</div>
+                    <div class="exp-divider"></div>
+                    <div class="exp-text">YEARS OF <br> EXPERIENCE</div>
+                </div>
+            </div>
+            <h2>ABOUT COMPANY</h2>
+            <p align="justify">GMT Marine India has a strong legacy in the marine industry, we are a leading global supplier of marine engine parts and rebuilt ship machinery.</p>
+            <p align="justify">Driven by a commitment to excellence, innovation, and a customer-first approach, our mission is to deliver reliable, timely, and efficient marine solutions.</p>
+            <p align="justify">As we look to the future, our vision is to become the most trusted name in marine and industrial solutions worldwide.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== SPECIALIZATION SECTION ===== -->
+<section class="specialization-section">
+    <div class="container">
+        <div class="section-title">
+            <h2><span>OUR</span> SPECIALIZATION <span class="title-lines"></span></h2>
+        </div>
+        <div class="specialization-grid">
+            <div class="spec-box"><div class="spec-icon">📦</div><h3>EXTENSIVE STOCK</h3><p>We have wide range of engine parts in ready stock.</p></div>
+            <div class="spec-box"><div class="spec-icon">👥</div><h3>TECHNICAL EXPERTISE</h3><p>Abundant experience in supply of engine parts.</p></div>
+            <div class="spec-box"><div class="spec-icon">🚚</div><h3>ON TIME DELIVERY</h3><p>Best possible prices and timely delivery schedule.</p></div>
+            <div class="spec-box"><div class="spec-icon">✔</div><h3>QUALITY ASSURANCE</h3><p>Committed to customer satisfaction.</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== PRODUCTS SECTION ===== -->
+<section class="products-section">
+    <div class="section-title">
+        <h2><span>OUR</span> PRODUCTS <span class="title-lines"></span></h2>
+    </div>
+    <div class="products-grid">
+        <div class="product-card">
+            <div class="product-image"><a href="#"><img src="https://via.placeholder.com/300x220/333/fff?text=Engine+Parts" alt=""></a></div>
+            <div class="product-bottom"><a href="#" class="product-name">ENGINE PARTS</a><a href="#" class="product-plus">+</a></div>
+        </div>
+        <div class="product-card">
+            <div class="product-image"><a href="#"><img src="https://via.placeholder.com/300x220/444/fff?text=Air+Compressor" alt=""></a></div>
+            <div class="product-bottom"><a href="#" class="product-name">AIR COMPRESSOR</a><a href="#" class="product-plus">+</a></div>
+        </div>
+        <div class="product-card">
+            <div class="product-image"><a href="#"><img src="https://via.placeholder.com/300x220/555/fff?text=Hydraulic" alt=""></a></div>
+            <div class="product-bottom"><a href="#" class="product-name">HYDRAULIC EQUIPMENT</a><a href="#" class="product-plus">+</a></div>
+        </div>
+        <div class="product-card">
+            <div class="product-image"><a href="#"><img src="https://via.placeholder.com/300x220/666/fff?text=Governor" alt=""></a></div>
+            <div class="product-bottom"><a href="#" class="product-name">GOVERNOR</a><a href="#" class="product-plus">+</a></div>
+        </div>
+    </div>
+    <div class="all-products-btn"><a href="#">ALL PRODUCTS</a></div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<section class="footer-tagline">
+    <h2>The Ideal Partner For Engine Parts & Ship Machinery</h2>
+</section>
+
+<footer class="footer">
+    <div class="container footer-grid">
+        <div class="footer-col">
+            <img src="https://via.placeholder.com/160x80/2c3e50/fff?text=GMT+MARINE" alt="Logo" class="footer-logo">
+            <p>A trusted global provider of marine engine parts, rebuilt machinery, and OEM components.</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+        <div class="footer-col">
+            <h3>CONTACT US</h3>
+            <p>Plot No. 61, Ferry Bander Road, Juna Bander, Bhavnagar - INDIA.</p>
+            <p>Email: sales@gmtmarine.in</p>
+            <p>Tel: +91 9825209873</p>
+        </div>
+        <div class="footer-col">
+            <h3>USEFUL LINKS</h3>
+            <ul class="footer-links">
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">PRODUCTS</a></li>
+                <li><a href="#">WORKSHOP</a></li>
+                <li><a href="#">NEW ARRIVAL</a></li>
+                <li><a href="#">CONTACT US</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Mobile Menu Toggle
+    const toggleBtn = document.getElementById("menu-toggle");
+    const navLinks = document.getElementById("nav-links");
+    toggleBtn.addEventListener("click", () => {
+        navLinks.classList.toggle("show");
+    });
+
+    // Slideshow
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        let slides = document.getElementsByClassName("slides");
+        let dots = document.getElementsByClassName("dot");
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) { slideIndex = 1; }
+        for (let i = 0; i < dots.length; i++) {
+            dots[i].classList.remove("active");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].classList.add("active");
+        setTimeout(showSlides, 3000);
+    }
+</script>
+
+
+
+
+
+
+</body>
+</html>

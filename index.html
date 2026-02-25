@@ -1,0 +1,1526 @@
+
+
+<style>
+/* ===== MOBILE SCROLL FIXES - GMT MARINE ===== */
+/* Ye fixes sirf mobile devices ke liye hai */
+
+@media only screen and (max-width: 768px) {
+    
+    /* Global Fix */
+    html, body {
+        overflow-x: hidden !important;
+        width: 100% !important;
+        position: relative;
+    }
+    
+    /* Container Fix - Navbar ko exclude karo */
+    .container:not(.nav-flex), 
+    .header-flex, 
+    .about-grid,
+    .specialization-grid,
+    .products-grid,
+    .footer-grid,
+    .footer,
+    section:not(.navbar) {
+        max-width: 100vw !important;
+        overflow-x: hidden !important;
+        width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* NAVBAR KO NORMAL RAKHO */
+    .navbar, .nav-flex, .nav-links, .nav-links * {
+        max-width: none !important;
+        overflow-x: visible !important;
+    }
+    
+    /* Fix for top header contact section */
+    .contact-section {
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 15px !important;
+    }
+    
+    /* Info boxes ko wrap kar do */
+    .info-box {
+        flex: 0 1 auto !important;
+        min-width: 200px !important;
+    }
+    
+    /* Quote button ko break se bachao */
+    .quote-btn {
+        white-space: nowrap !important;
+        max-width: 100% !important;
+    }
+    
+    /* Logo image compress */
+    .logo-section img {
+        max-width: 200px !important;
+        width: 100% !important;
+        height: auto !important;
+    }
+    
+    /* Experience section fix */
+    .experience-wrapper {
+        width: 100% !important;
+        overflow: hidden !important;
+    }
+    
+    .experience-box {
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+    }
+    
+    .exp-number {
+        font-size: 50px !important;
+    }
+    
+    .exp-divider {
+        margin: 0 10px !important;
+    }
+    
+    /* Red background block hatao mobile me */
+    .about-slider::before {
+        display: none !important;
+    }
+    
+    /* Products section */
+    .product-bottom {
+        flex-wrap: wrap !important;
+    }
+    
+    .product-name {
+        padding: 15px 10px !important;
+        font-size: 13px !important;
+    }
+    
+    .product-plus {
+        padding: 15px 18px !important;
+    }
+    
+    /* Section titles ko adjust */
+    .section-title h2 {
+        font-size: 28px !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        text-align: center !important;
+    }
+    
+    /* Footer tagline */
+    .footer-tagline h2 {
+        font-size: 20px !important;
+        line-height: 1.4 !important;
+        word-break: break-word !important;
+    }
+    
+    /* Footer social icons */
+    .social-icons {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+    }
+    
+    .social-icons a {
+        margin-bottom: 5px !important;
+    }
+    
+    /* IMPORTANT: Nav-links ko normal rakho */
+    .nav-links {
+        max-width: none !important;
+        width: 100% !important;
+    }
+    
+    .nav-links li {
+        max-width: none !important;
+        width: 100% !important;
+    }
+    
+    .nav-links li a {
+        max-width: none !important;
+        white-space: normal !important;
+    }
+    
+    /* Koi bhi element overflow na ho - EXCEPT NAVBAR */
+    *:not(.navbar):not(.nav-links):not(.nav-links *):not(.menu-toggle):not(.mobile-logo) {
+        max-width: 100vw !important;
+        box-sizing: border-box !important;
+    }
+}
+
+/* Extra small devices (phones, 480px and below) */
+@media only screen and (max-width: 480px) {
+    
+    .logo-section img {
+        max-width: 150px !important;
+    }
+    
+    .info-box {
+        min-width: 100% !important;
+        justify-content: center !important;
+        text-align: center !important;
+    }
+    
+    .info-box div {
+        text-align: left !important;
+    }
+    
+    .quote-btn {
+        width: 100% !important;
+        text-align: center !important;
+    }
+    
+    .exp-number {
+        font-size: 40px !important;
+    }
+    
+    .exp-text {
+        font-size: 12px !important;
+    }
+    
+    .product-bottom {
+        flex-direction: column !important;
+    }
+    
+    .product-name {
+        width: 100% !important;
+        text-align: center !important;
+    }
+    
+    .product-plus {
+        width: 100% !important;
+        text-align: center !important;
+    }
+}
+
+/* Tablet fixes */
+@media only screen and (min-width: 769px) and (max-width: 992px) {
+    html, body {
+        overflow-x: hidden !important;
+        width: 100% !important;
+    }
+    
+    .specialization-grid,
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px !important;
+    }
+    
+    .contact-section {
+        flex-wrap: wrap !important;
+    }
+}
+</style>
+
+
+
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    
+    margin: auto;
+}
+
+/* ===== TOP HEADER ===== */
+.top-header {
+    background: #f4f4f4;
+    padding: 15px 0;
+}
+
+.header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+}
+
+.logo-section img {
+    width: 300px;
+    margin-right: 15px;
+}
+
+.logo-text h2 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.logo-text p {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.logo-text span {
+    font-size: 12px;
+    color: #777;
+}
+
+.contact-section {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.info-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.info-box i {
+    color: #e74c3c;
+}
+
+.quote-btn {
+    background: #2c3e50;
+    color: #fff;
+    padding: 10px 18px;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+    background: #2c3e50;
+}
+
+.nav-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    padding: 15px 20px;
+}
+
+.nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Default link color */
+.nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+/* Hover effect - only text color change */
+.nav-links li a:hover {
+    color: #e74c3c;
+}
+
+/* Active menu text color */
+.nav-links li.active a {
+    color: #e74c3c;
+}
+
+/* Toggle Button */
+.menu-toggle {
+    display: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.mobile-logo {
+    display: none;
+}
+
+.mobile-logo img {
+    width: 250px;
+}
+.navhd{
+position:Fixed;
+width:100%;
+top:0;
+z-index:999;
+}
+
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 768px) {
+
+    .top-header {
+        display: none;
+    }
+
+
+
+    .mobile-logo {
+        display: block;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: #2c3e50;
+        flex-direction: column;
+        display: none;
+    }
+
+    .nav-links li {
+        text-align: center;
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+}
+</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GMT Navbar</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<!-- ======= TOP HEADER ======= -->
+<nav class="navhd">
+<header class="top-header">
+    <div class="container header-flex">
+
+        <!-- Logo Section -->
+        <div class="logo-section">
+            <img src="logo.png" alt="Logo">
+            <div class="logo-text">
+             
+            </div>
+        </div>
+
+        <!-- Contact Section (Hide on mobile) -->
+        <div class="contact-section">
+            <div class="info-box">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                    <strong>INDIA</strong>
+                    <p>Juna Bander, Bhavnagar</p>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <i class="fas fa-phone"></i>
+                <div>
+                    <strong>+91 9825209873</strong>
+                    
+                </div>
+            </div>
+
+            <a href="#" class="quote-btn">REQUEST A QUOTE</a>
+        </div>
+
+    </div>
+</header>
+
+<!-- ======= NAVBAR ======= -->
+<nav class="navbar">
+    <div class="container nav-flex">
+
+        <!-- Mobile Logo -->
+        <div class="mobile-logo">
+            <img src="mlogo.png" alt="Logo">
+        </div>
+
+        <!-- Toggle Button -->
+        <div class="menu-toggle" id="menu-toggle" style="margin-right:30px;">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <!-- Menu Links -->
+        <ul class="nav-links" id="nav-links">
+            <li class="active"><a href="#">HOME</a></li>
+            <li><a href="#">PRODUCTS</a></li>
+            <li><a href="#">WORKSHOP</a></li>
+            <li><a href="#">UPDATES</a></li>
+            <li><a href="#">CONTACT US</a></li>
+        </ul>
+
+    </div>
+</nav>
+
+<script>
+    const toggleBtn = document.getElementById("menu-toggle");
+    const navLinks = document.getElementById("nav-links");
+
+    toggleBtn.addEventListener("click", () => {
+        navLinks.classList.toggle("show");
+    });
+</script>
+</nav>
+<div><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="responsive-bg">
+<style>
+.desktop-img,
+.mobile-img {
+    width: 100%;
+    display: block;
+}
+
+/* Hide Mobile by Default */
+.mobile-img {
+    display: none;
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+    .desktop-img {
+        display: none;
+    }
+
+    .mobile-img {
+        display: block;
+    }
+}
+/* Default = Desktop */
+.responsive-bg {
+    width: 100%;
+    
+    background-image: url("bg1.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Mobile Image */
+@media (max-width: 768px) {
+    .responsive-bg {
+        background-image: url("bg2.png");
+        
+    }
+}
+</style>
+<img src="bg1.png" class="desktop-img" alt="">
+<img src="bg2.png" class="mobile-img" alt="">
+</section>
+
+
+
+
+
+
+
+
+
+
+
+<!-- ===== ABOUT SECTION ===== -->
+<section class="about-section">
+    <div class="container about-grid">
+
+        <!-- LEFT SIDE SLIDER -->
+        <div class="about-slider">
+
+            <div class="slides fade">
+                <img src="s1.jpg" alt="">
+            </div>
+
+            <div class="slides fade">
+                <img src="S2.JPG" alt="">
+            </div>
+
+
+            <!-- Dots -->
+            <div class="dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+
+        </div>
+
+        <!-- RIGHT SIDE CONTENT -->
+        <div class="about-content">
+<div class="experience-wrapper">
+    <div class="experience-box">
+        <div class="exp-number">25</div>
+        <div class="exp-divider"></div>
+        <div class="exp-text">
+            YEARS OF <br> EXPERIENCE
+        </div>
+    </div>
+</div>
+
+            <h2>ABOUT COMPANY</h2>
+
+            <p align="justify">
+               GMT Marine India has a strong legacy in the marine industry, we are a leading global supplier of marine engine parts and rebuilt ship machinery. Our strategically located facility in India & Dubai ensures quick delivery and cost-effective, high-quality solutions tailored to our clients’ needs.
+            </p>
+
+            <p align="justify">
+               Driven by a commitment to excellence, innovation, and a customer-first approach, our mission is to deliver reliable, timely, and efficient marine solutions that guarantee complete customer satisfaction. Backed by extensive stock, deep technical expertise, and a skilled engineering team, we ensure every product and service meets the highest standards of performance and integrity.
+            </p>
+
+            <p align="justify">
+               As we look to the future, our vision is to become the most trusted name in marine and industrial solutions worldwide — known for our timely delivery, product
+            </p>
+
+            
+        </div>
+
+    </div>
+</section>
+<style>
+
+/* ============================= */
+/*        ABOUT SECTION          */
+/* ============================= */
+
+.about-section {
+    padding: 80px 0;
+    
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+/* ===== SLIDER ===== */
+
+.about-slider {
+    position: relative;
+    z-index: 1;
+}
+
+/* Red Background Block */
+.about-slider::before {
+    content: "";
+    position: absolute;
+    bottom: -30px;
+    left: -30px;
+    width: 80%;
+    height: 80%;
+    background: #e74c3c;
+    z-index: 0;
+}
+
+/* Slides */
+.slides {
+    display: none;
+    position: relative;
+    z-index: 2;
+}
+
+.slides img {
+    width: 100%;
+    border-radius: 6px;
+    display: block;
+}
+
+/* Fade Animation */
+.fade {
+    animation: fadeEffect 1s;
+}
+
+@keyframes fadeEffect {
+    from { opacity: 0.4; }
+    to { opacity: 1; }
+}
+
+/* Dots */
+.dots {
+    text-align: center;
+    margin-top: 15px;
+    position: relative;
+    z-index: 3;
+}
+
+.dot {
+    height: 10px;
+    width: 10px;
+    margin: 0 4px;
+    background-color: #999;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+.dot.active {
+    background-color: #e74c3c;
+}
+
+/* ===== RIGHT CONTENT ===== */
+
+.about-content h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.about-content p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+    color: #444;
+}
+
+/* ===== EXPERIENCE BOX DESIGN ===== */
+/* ============================= */
+/*   EXPERIENCE BACKGROUND FX   */
+/* ============================= */
+
+.experience-wrapper {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 30px;
+    padding: 20px 0;
+}
+
+/* Moving Background */
+.experience-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;  /* double width for smooth loop */
+    height: 100%;
+    background: url("line.png") repeat-x;
+    background-size: contain;
+    animation: scrollLine 10s linear infinite;
+    
+    z-index: 0;
+}
+
+/* Animation */
+@keyframes scrollLine {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* Experience Box (above background) */
+.experience-box {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+}
+
+/* Number */
+.exp-number {
+    font-size: 70px;
+    font-weight: 800;
+    color: #e74c3c;
+    line-height: 1;
+}
+
+/* Divider Line */
+.exp-divider {
+    width: 2px;
+    height: 60px;
+    background: #000;
+    margin: 0 15px;
+}
+
+/* Text */
+.exp-text {
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .exp-number {
+        font-size: 50px;
+    }
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
+
+@media (max-width: 768px) {
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-slider::before {
+        display: none;
+    }
+
+    .years {
+        font-size: 40px;
+    }
+
+}
+
+
+</style>
+
+
+
+<script>
+let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+    let slides = document.getElementsByClassName("slides");
+    let dots = document.getElementsByClassName("dot");
+
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+
+    slideIndex++;
+    if (slideIndex > slides.length) { slideIndex = 1 }
+
+    for (let i = 0; i < dots.length; i++) {
+        dots[i].classList.remove("active");
+    }
+
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].classList.add("active");
+
+    setTimeout(showSlides, 3000); // Change every 3 sec
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="specialization-section">
+    <div class="container">
+
+      <div class="section-title">
+    <h2>
+        <span>OUR</span> SPECIALIZATION
+        <span class="title-lines"></span>
+    </h2>
+</div>
+
+        <div class="specialization-grid">
+
+            <div class="spec-box">
+                <div class="spec-icon">📦</div>
+                <h3>EXTENSIVE STOCK</h3>
+                <p>
+                    We have wide range of engine parts (2-stroke and 4-stroke)
+                    and machinery for marine and industrial power plant in
+                    ready stock with technical reports for immediate delivery.
+                </p>
+            </div>
+
+            <div class="spec-box">
+                <div class="spec-icon">👥</div>
+                <h3>TECHNICAL EXPERTISE</h3>
+                <p>
+                    Abundant experience in supply of engine parts and ship
+                    machinery, reconditioning and repair with our well
+                    experienced team with engineering background.
+                </p>
+            </div>
+
+            <div class="spec-box">
+                <div class="spec-icon">🚚</div>
+                <h3>ON TIME DELIVERY</h3>
+                <p>
+                    We find it crucial to provide these products at the best
+                    possible prices and within a timely delivery schedule.
+                </p>
+            </div>
+
+            <div class="spec-box">
+                <div class="spec-icon">✔</div>
+                <h3>QUALITY ASSURANCE</h3>
+                <p>
+                    We are committed to customer satisfaction by delivering
+                    high quality parts and machinery within stipulated
+                    timeframes in cost effective manner.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+<style>
+/* ===== Section Title Styling ===== */
+
+.section-title {
+    margin-bottom: 50px;
+}
+
+.section-title h2 {
+    font-size: 34px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.section-title h2 span:first-child {
+    color: #e74c3c;
+}
+
+/* Decorative Lines */
+.title-lines {
+    position: relative;
+    width: 60px;
+    height: 2px;
+    background: #e74c3c;
+}
+
+.title-lines::after {
+    content: "";
+    position: absolute;
+    top: -6px;
+    right: 0;
+    width: 35px;
+    height: 2px;
+    background: #e74c3c;
+}
+/* =============================== */
+/*      SPECIALIZATION SECTION     */
+/* =============================== */
+
+.specialization-section {
+    background: url("bg.png") center center / cover no-repeat;
+    padding: 80px 0;
+    position: relative;
+}
+
+.container {
+    
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Section Title */
+.section-title {
+    margin-bottom: 50px;
+}
+
+.section-title h2 {
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.section-title h2 span {
+    color: #e74c3c;
+}
+
+/* Grid Layout */
+.specialization-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+/* Box Design */
+.spec-box {
+    background: #f3f3f3;
+    padding: 40px 25px;
+    text-align: center;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.spec-box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* Icon */
+.spec-icon {
+    width: 80px;
+    height: 80px;
+    background: #e74c3c;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 30px;
+    color: #fff;
+}
+
+/* Heading */
+.spec-box h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+/* Paragraph */
+.spec-box p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #555;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .specialization-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .specialization-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="products-section">
+
+    <div class="section-title">
+        <h2>
+            <span>OUR</span> PRODUCTS
+            <span class="title-lines"></span>
+        </h2>
+    </div>
+
+    <div class="products-grid">
+
+        <!-- Product 1 -->
+        <div class="product-card">
+            <div class="product-image">
+                <a href="productinfo.html">
+                    <img src="p1.jpg" alt="Engine Parts">
+                </a>
+            </div>
+
+            <div class="product-bottom">
+                <a href="productinfo.html" class="product-name">
+                    ENGINE PARTS
+                </a>
+
+                <a href="inquiry.html" class="product-plus">+</a>
+            </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card">
+            <div class="product-image">
+                <a href="productinfo.html">
+                    <img src="p2.jpg" alt="Air Compressor">
+                </a>
+            </div>
+
+            <div class="product-bottom">
+                <a href="productinfo.html" class="product-name">
+                    AIR COMPRESSOR
+                </a>
+
+                <a href="inquiry.html" class="product-plus">+</a>
+            </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card">
+            <div class="product-image">
+                <a href="productinfo.html">
+                    <img src="p3.jpg" alt="Hydraulic Equipment">
+                </a>
+            </div>
+
+            <div class="product-bottom">
+                <a href="productinfo.html" class="product-name">
+                    HYDRAULIC EQUIPMENT
+                </a>
+
+                <a href="inquiry.html" class="product-plus">+</a>
+            </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card">
+            <div class="product-image">
+                <a href="productinfo.html">
+                    <img src="p4.jpg" alt="Governor">
+                </a>
+            </div>
+
+            <div class="product-bottom">
+                <a href="productinfo.html" class="product-name">
+                    GOVERNOR
+                </a>
+
+                <a href="inquiry.html" class="product-plus">+</a>
+            </div>
+        </div>
+
+    </div>
+
+   <div class="all-products-btn">
+    <a href="allproducts.html">ALL PRODUCTS</a>
+</div>
+
+</section>
+<style>
+/* ============================= */
+/*        PRODUCTS SECTION       */
+/* ============================= */
+
+.products-section {
+    background: #f5f5f5;
+    padding: 80px 0;
+}
+
+.products-grid {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+/* Card */
+.product-card {
+    background: #fff;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+/* Image Wrapper */
+.product-image {
+    height: 220px;
+    overflow: hidden;
+}
+
+.product-image img {
+    width: 100%;
+    height: 120%;
+    object-fit: cover;
+    transition: 4s ease;
+}
+
+/* Hover Scroll Effect */
+.product-card:hover img {
+    transform: translateY(-15%);
+}
+
+/* Bottom Bar */
+.product-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #2f3e4e;
+}
+
+.product-name {
+    color: #fff;
+    text-decoration: none;
+    padding: 18px;
+    font-weight: 600;
+    font-size: 14px;
+    flex: 1;
+}
+
+.product-plus {
+    background: #e74c3c;
+    color: #fff;
+    text-decoration: none;
+    padding: 18px 22px;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.product-plus:hover {
+    background: #c0392b;
+}
+
+/* ============================= */
+/*      ALL PRODUCTS BUTTON      */
+/* ============================= */
+
+.all-products-btn {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.all-products-btn a {
+    position: relative;
+    display: inline-block;
+    padding: 14px 40px;
+    background: #2f3e4e;
+    color: #fff;
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+/* Corner Borders */
+.all-products-btn a::before,
+.all-products-btn a::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #e74c3c;
+}
+
+.all-products-btn a::before {
+    top: -8px;
+    left: -8px;
+    border-right: none;
+    border-bottom: none;
+}
+
+.all-products-btn a::after {
+    bottom: -8px;
+    right: -8px;
+    border-left: none;
+    border-top: none;
+}
+
+/* Hover Effect */
+.all-products-btn a:hover {
+    background: #e74c3c;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ======= FOOTER ======= -->
+<style>
+/* ===== FOOTER TAGLINE ===== */
+.footer-tagline {
+    background: #e74c3c;
+    text-align: center;
+    padding: 30px 10px;
+}
+
+.footer-tagline h2 {
+    color: #fff;
+    font-family: cursive;
+    font-size: 28px;
+    font-weight: normal;
+}
+
+/* ===== FOOTER MAIN ===== */
+.footer {
+    background: #dcdcdc;
+    padding: 50px 0;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 40px;
+}
+
+.footer-logo {
+    width: 75%;
+    margin-bottom: 15px;
+}
+
+.footer-col p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.footer-col h3 {
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.social-icons a {
+    display: inline-flex;      /* change from inline-block */
+    justify-content: center;
+    align-items: center;
+    margin-right: 8px;
+    width: 35px;
+    height: 35px;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 14px;
+}
+.social-icons a:nth-child(1) { background: #ff0000; }
+.social-icons a:nth-child(2) { background: #3b5998; }
+.social-icons a:nth-child(3) { background: #0077b5; }
+.social-icons a:nth-child(4) { background: #1da1f2; }
+
+/* Footer Links */
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    border-bottom: 1px dashed #aaa;
+    padding: 10px 0;
+}
+
+.footer-links li a {
+    text-decoration: none;
+    color: #000;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.footer-links li a:hover {
+    color: #e74c3c;
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 768px) {
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-tagline h2 {
+        font-size: 20px;
+    }
+}
+</style>
+<!-- Top Red Tagline -->
+<section class="footer-tagline">
+    <h2>The Ideal Partner For Engine Parts & Ship Machinery</h2>
+</section>
+
+<!-- Main Footer -->
+<footer class="footer">
+    <div class="container footer-grid">
+
+        <!-- About Section -->
+        <div class="footer-col">
+            <img src="logo.png" alt="Logo" class="footer-logo">
+
+            <p>
+               A trusted global provider of marine engine parts, rebuilt machinery, and OEM components with over a decade of excellence.
+            </p>
+
+            <div class="social-icons">
+                <a href="#" style="text-decoration:none"><i class="fab fa-youtube"></i></a>
+                <a href="#" style="text-decoration:none"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" style="text-decoration:none"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" style="text-decoration:none"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="footer-col">
+            <h3>CONTACT US</h3>
+            <p>
+                Plot No. 61,<br> Ferry Bander Road, <br>Juna Bander, Bhavnagar - INDIA.
+            </p>
+
+            <p>Email : sales@gmtmarine.in</p>
+            <p>Tel : +91 9825209873</p>
+        </div>
+
+        <!-- Useful Links -->
+        <div class="footer-col">
+            <h3>USEFUL LINKS</h3>
+            <ul class="footer-links">
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">PRODUCTS</a></li>
+                <li><a href="#">WORKSHOP</a></li>
+                <li><a href="#">NEW ARRIVAL</a></li>
+                <li><a href="#">CONTACT US</a></li>
+            </ul>
+        </div>
+
+    </div>
+</footer>
+
+
+
+
+
+
+
