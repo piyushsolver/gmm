@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GMT Marine India – Distinct & Professional</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background: #ffffff;
+            color: #1e293b;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* === HEADER (EXACTLY AS PROVIDED, UNTOUCHED) === */
+        .top-header {
+            background: linear-gradient(135deg, #f4f4f4 0%, #ffffff 100%);
+            padding: 15px 0;
+            border-bottom: 1px solid #e0e0e0;
+            position: relative;
+            overflow: hidden;
+            animation: headerGlow 4s infinite alternate;
+        }
+
+        @keyframes headerGlow {
+            0% { box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+            100% { box-shadow: 0 5px 20px rgba(231, 76, 60, 0.15); }
+        }
+
+        .top-header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(231,76,60,0.05) 0%, transparent 70%);
+            animation: rotateGlow 15s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes rotateGlow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            animation: slideInLeft 1s ease;
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .logo-section img {
+            width: 300px;
+            margin-right: 15px;
+            transition: transform 0.4s;
+        }
+
+        .logo-section img:hover {
+            transform: scale(1.02) rotate(-0.5deg);
+        }
+
+        .logo-text h2 {
+            font-size: 18px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .contact-section {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            animation: slideInRight 1s ease;
+        }
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .info-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.4s;
+            padding: 5px 10px;
+            border-radius: 40px;
+        }
+
+        .info-box:hover {
+            background: white;
+            box-shadow: 0 5px 15px rgba(231,76,60,0.15);
+            transform: translateY(-3px);
+        }
+
+        .info-box i {
+            color: #e74c3c;
+            font-size: 18px;
+            transition: transform 0.3s;
+        }
+
+        .info-box:hover i {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .info-box div strong {
+            font-size: 14px;
+            color: #2c3e50;
+        }
+
+        .info-box div p {
+            font-size: 12px;
+            color: #777;
+        }
+
+        .quote-btn {
+            background: #2c3e50;
+            color: #fff;
+            padding: 10px 18px;
+            text-decoration: none;
+            font-size: 13px;
+            transition: all 0.4s;
+            border: 1px solid #2c3e50;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .quote-btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: #e74c3c;
+            transition: left 0.4s;
+            z-index: -1;
+        }
+
+        .quote-btn:hover::before {
+            left: 0;
+        }
+
+        .quote-btn:hover {
+            color: white;
+            border-color: #e74c3c;
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(231,76,60,0.4);
+        }
+
+        .navbar {
+            background: #2c3e50;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            padding: 15px 20px;
+            position: relative;
+        }
+
+        .nav-links li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+            font-size: 14px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .nav-links li::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: #e74c3c;
+            transition: width 0.3s;
+        }
+
+        .nav-links li:hover::before,
+        .nav-links li.active::before {
+            width: 70%;
+        }
+
+        .nav-links li a:hover {
+            color: #e74c3c;
+        }
+
+        .nav-links li.active a {
+            color: #e74c3c;
+        }
+
+        .menu-toggle {
+            display: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .mobile-logo {
+            display: none;
+        }
+
+        .mobile-logo img {
+            width: 200px;
+        }
+
+        .hero-section {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            overflow: hidden;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            animation: slowZoom 15s infinite alternate;
+        }
+
+        @keyframes slowZoom {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+
+        .desktop-img { display: block; width: 100%; height: 100%; object-fit: cover; }
+        .mobile-img { display: none; width: 100%; height: 100%; object-fit: cover; }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(44,62,80,0.8) 0%, rgba(231,76,60,0.4) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-overlay h1 {
+            font-size: 64px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            animation: fadeInUp 1.2s ease;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-overlay p {
+            font-size: 24px;
+            animation: fadeInUp 1.2s ease 0.2s both;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .hero-overlay .hero-btn {
+            margin-top: 30px;
+            padding: 15px 40px;
+            background: #e74c3c;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 50px;
+            animation: fadeInUp 1.2s ease 0.4s both;
+            transition: all 0.4s;
+            border: 2px solid transparent;
+        }
+
+        .hero-overlay .hero-btn:hover {
+            background: transparent;
+            border-color: white;
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* === NEW DISTINCT SECTION STYLES (BELOW HEADER) === */
+        /* About – different: minimal, split-card, no slider */
+        .about-new {
+            padding: 100px 0;
+            background: #fafbfc;
+        }
+
+        .about-grid-new {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-media-new {
+            position: relative;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: 0 30px 50px -20px rgba(0,20,40,0.25);
+            transition: box-shadow 0.4s;
+            background: #ffffff;
+        }
+
+        .about-media-new img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+
+        .about-media-new:hover img {
+            transform: scale(1.02);
+        }
+
+        .about-badge-new {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: #ffffffcc;
+            backdrop-filter: blur(8px);
+            padding: 14px 28px;
+            border-radius: 60px;
+            font-weight: 700;
+            color: #0b2b4f;
+            border-left: 4px solid #e74c3c;
+            box-shadow: 0 10px 18px -8px rgba(0,0,0,0.1);
+        }
+
+        .about-content-new h5 {
+            color: #e74c3c;
+            letter-spacing: 4px;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .about-content-new h2 {
+            font-size: 44px;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #0f2a44;
+            margin-bottom: 24px;
+        }
+
+        .about-content-new p {
+            color: #334155;
+            font-size: 16px;
+            margin-bottom: 20px;
+            border-left: 3px solid #e74c3c30;
+            padding-left: 20px;
+        }
+
+        .stats-new {
+            display: flex;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .stat-item-new h3 {
+            font-size: 40px;
+            font-weight: 800;
+            color: #0f2a44;
+        }
+
+        .stat-item-new h3 span { color: #e74c3c; }
+        .stat-item-new p { border: none; padding: 0; color: #5f6b7a; }
+
+        /* specialization – bold & angular */
+        .spec-new {
+            background: #0b1c2f;
+            color: white;
+            padding: 90px 0;
+        }
+
+        .section-title-new {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title-new .tag {
+            color: #e74c3c;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .section-title-new h2 {
+            font-size: 48px;
+            font-weight: 700;
+            color: white;
+        }
+
+        .spec-grid-new {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .spec-card-new {
+            background: rgba(255,255,255,0.04);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(231, 76, 60, 0.2);
+            padding: 40px 24px;
+            transition: 0.3s;
+            border-radius: 0px;
+            position: relative;
+        }
+
+        .spec-card-new:hover {
+            background: #10243e;
+            border-color: #e74c3c;
+            transform: translateY(-8px);
+        }
+
+        .spec-card-new .number {
+            font-size: 48px;
+            font-weight: 900;
+            color: #e74c3c20;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+
+        .spec-card-new i { font-size: 48px; color: #e74c3c; margin-bottom: 25px; }
+        .spec-card-new h3 { font-size: 22px; margin-bottom: 12px; }
+        .spec-card-new p { color: #a0b3cc; font-size: 15px; }
+
+        /* Products – clean, large cards, minimal */
+        .products-new {
+            padding: 100px 0;
+            background: #ffffff;
+        }
+
+        .title-light h2 {
+            color: #0f2a44;
+            font-size: 42px;
+        }
+
+        .products-grid-new {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin: 50px 0 40px;
+        }
+
+        .product-card-new {
+            background: #fff;
+            border: 1px solid #e9edf2;
+            transition: all 0.25s;
+            border-radius: 0px;
+            padding: 0 0 24px 0;
+        }
+
+        .product-card-new:hover {
+            border-color: #e74c3c;
+            box-shadow: 0 25px 35px -18px #e74c3c30;
+        }
+
+        .product-img-new {
+            height: 220px;
+            background: #f1f5f9;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-img-new img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .product-card-new:hover img {
+            opacity: 0.9;
+            transform: scale(1.03);
+        }
+
+        .product-cat-new {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: #0f2a44;
+            color: white;
+            padding: 6px 14px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .product-body-new {
+            padding: 20px 20px 0;
+        }
+
+        .product-body-new h4 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #0f2a44;
+        }
+
+        .product-body-new p {
+            color: #5f6b7a;
+            font-size: 14px;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .product-footer-new {
+            padding: 15px 20px 0;
+            border-top: 1px dashed #d0d9e4;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .product-footer-new a {
+            color: #0f2a44;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 13px;
+            letter-spacing: 0.8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .product-footer-new a i { transition: 0.2s; }
+        .product-footer-new a:hover { color: #e74c3c; }
+        .product-footer-new a:hover i { transform: translateX(5px); }
+
+        .badge-new {
+            background: #eef2f6;
+            padding: 5px 12px;
+            font-size: 11px;
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        .all-products-new {
+            text-align: center;
+        }
+        .all-products-new a {
+            display: inline-block;
+            border: 2px solid #0f2a44;
+            padding: 16px 50px;
+            font-weight: 700;
+            text-decoration: none;
+            color: #0f2a44;
+            letter-spacing: 2px;
+            transition: 0.3s;
+        }
+        .all-products-new a:hover {
+            background: #0f2a44;
+            color: white;
+            border-color: #e74c3c;
+        }
+
+        /* footer unchanged */
+        .footer-tagline {
+            background: #e74c3c;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        .footer-tagline h2 {
+            color: white;
+            font-size: 28px;
+            font-weight: 400;
+        }
+        .footer {
+            background: #2c3e50;
+            padding: 60px 0 40px;
+            color: #ecf0f1;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 40px;
+        }
+        .footer-logo {
+            width: 250px;
+            margin-bottom: 20px;
+            filter: brightness(0) invert(1);
+        }
+        .footer-col p { font-size: 14px; color: #bdc3c7; }
+        .footer-col h3 {
+            color: white;
+            margin-bottom: 25px;
+            font-size: 18px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e74c3c;
+            display: inline-block;
+        }
+        .social-icons { display: flex; gap: 8px; }
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: #34495e;
+            color: white;
+            border-radius: 50%;
+            transition: 0.3s;
+        }
+        .social-icons a:hover { background: #e74c3c; transform: translateY(-3px); }
+        .footer-links { list-style: none; }
+        .footer-links li {
+            border-bottom: 1px dashed #34495e;
+            padding: 10px 0;
+        }
+        .footer-links li a {
+            color: #bdc3c7;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+        .footer-links li a:hover {
+            color: #e74c3c;
+            padding-left: 8px;
+        }
+
+        /* responsive */
+        @media (max-width: 992px) {
+            .spec-grid-new, .products-grid-new, .about-grid-new {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .top-header { display: none; }
+            .mobile-logo { display: block; }
+            .menu-toggle { display: block; margin-right: 20px; }
+            .nav-links {
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: #2c3e50;
+                flex-direction: column;
+                display: none;
+            }
+            .nav-links.show { display: flex; }
+            .spec-grid-new, .products-grid-new, .about-grid-new {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .footer-col h3 { display: block; }
+            .social-icons { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER (exactly same) -->
+    <header class="top-header"> <!-- full unchanged --> 
+        <div class="container header-flex">
+            <div class="logo-section">
+                <img src="logo.png" width='300' alt="GMT Marine Logo">
+            </div>
+            <div class="contact-section">
+                <div class="info-box">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div><strong>INDIA</strong><p>Juna Bander, Bhavnagar</p></div>
+                </div>
+                <div class="info-box">
+                    <i class="fas fa-phone"></i>
+                    <div><strong>+91 9825209873</strong></div>
+                </div>
+                <a href="#" class="quote-btn">REQUEST A QUOTE</a>
+            </div>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <div class="container nav-flex">
+            <div class="mobile-logo"><img src="mlogo.png" alt="GMT Marine mobile logo"></div>
+            <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
+            <ul class="nav-links" id="nav-links">
+                <li class="active"><a href="#">HOME</a></li>
+                <li><a href="#">PRODUCTS</a></li>
+                <li><a href="#">WORKSHOP</a></li>
+                <li><a href="#">UPDATES</a></li>
+                <li><a href="#">CONTACT US</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- hero (same) -->
+    <section class="hero-section">
+        <img src="bg1.png" alt="Massive container ship" class="desktop-img hero-image">
+        <img src="bg2.png" alt="Massive container ship" class="mobile-img hero-image">
+        <div class="hero-overlay">
+            <h1>MARINE EXCELLENCE</h1>
+            <p>Global Supplier Since 1998</p>
+            <a href="#" class="hero-btn">EXPLORE PRODUCTS</a>
+        </div>
+    </section>
+
+    <!-- ABOUT – NEW distinct version (image same s1.jpg but different layout) -->
+    <section class="about-new">
+        <div class="container about-grid-new">
+            <div class="about-media-new">
+                <img src="s1.jpg" alt="marine workshop">
+                <div class="about-badge-new">
+                    <i class="fas fa-anchor" style="color:#e74c3c;"></i>  Established 1998
+                </div>
+            </div>
+            <div class="about-content-new">
+                <h5>⸻  OUR LEGACY</h5>
+                <h2>Where precision meets the tide</h2>
+                <p>GMT Marine India has powered vessels across oceans with reliable engine parts and rebuilt machinery. Our India & Dubai hubs ensure rapid delivery and technical depth.</p>
+                <p>We combine stock availability with engineering know‑how – from cylinder heads to complete slow‑speed spares. Every component carries our commitment to safe, uninterrupted voyages.</p>
+                <div class="stats-new">
+                    <div class="stat-item-new">
+                        <h3><span>25+</span></h3>
+                        <p>Years at sea</p>
+                    </div>
+                    <div class="stat-item-new">
+                        <h3><span>850+</span></h3>
+                        <p>Vessels served</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SPECIALIZATION – new bold & dark -->
+    <section class="spec-new">
+        <div class="container">
+            <div class="section-title-new">
+                <span class="tag">CAPABILITIES</span>
+                <h2>Our specialized focus</h2>
+            </div>
+            <div class="spec-grid-new">
+                <div class="spec-card-new">
+                    <span class="number">01</span>
+                    <i class="fas fa-cubes"></i>
+                    <h3>Deep stock</h3>
+                    <p>Ready inventory of 2‑stroke / 4‑stroke parts, with technical reports for quick decisions.</p>
+                </div>
+                <div class="spec-card-new">
+                    <span class="number">02</span>
+                    <i class="fas fa-microchip"></i>
+                    <h3>Engineering edge</h3>
+                    <p>In‑house reconditioning, dynamic balancing, and non‑destructive testing.</p>
+                </div>
+                <div class="spec-card-new">
+                    <span class="number">03</span>
+                    <i class="fas fa-ship"></i>
+                    <h3>Deck to engine</h3>
+                    <p>Hydraulics, governors, pumps, compressors – covering all critical engine room gear.</p>
+                </div>
+                <div class="spec-card-new">
+                    <span class="number">04</span>
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Integrity first</h3>
+                    <p>ISO procedures, OEM‑grade alternatives, and full warranty on every supply.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTS – new clean card design (same images) -->
+    <section class="products-new">
+        <div class="container">
+            <div class="section-title-new title-light">
+                <span class="tag">FLEET ESSENTIALS</span>
+                <h2>Marine products</h2>
+            </div>
+            <div class="products-grid-new">
+                <div class="product-card-new">
+                    <div class="product-img-new">
+                        <img src="p1.jpg" alt="engine parts">
+                        <span class="product-cat-new">PROPULSION</span>
+                    </div>
+                    <div class="product-body-new">
+                        <h4>Engine parts</h4>
+                        <p>Cylinder heads, pistons, liners, complete top end & fuel injection.</p>
+                    </div>
+                    <div class="product-footer-new">
+                        <a href="#">VIEW <i class="fas fa-arrow-right"></i></a>
+                        <span class="badge-new">OEM</span>
+                    </div>
+                </div>
+                <div class="product-card-new">
+                    <div class="product-img-new">
+                        <img src="p2.jpg" alt="air compressor">
+                        <span class="product-cat-new">AIR SYSTEMS</span>
+                    </div>
+                    <div class="product-body-new">
+                        <h4>Compressors</h4>
+                        <p>High‑pressure starting air, screw and reciprocating, with spares.</p>
+                    </div>
+                    <div class="product-footer-new">
+                        <a href="#">VIEW <i class="fas fa-arrow-right"></i></a>
+                        <span class="badge-new">NEW</span>
+                    </div>
+                </div>
+                <div class="product-card-new">
+                    <div class="product-img-new">
+                        <img src="p3.jpg" alt="hydraulic pump">
+                        <span class="product-cat-new">HYDRAULICS</span>
+                    </div>
+                    <div class="product-body-new">
+                        <h4>Hydraulic equipment</h4>
+                        <p>Pumps, motors, valves, power packs for deck machinery and steering.</p>
+                    </div>
+                    <div class="product-footer-new">
+                        <a href="#">VIEW <i class="fas fa-arrow-right"></i></a>
+                        <span class="badge-new">STOCK</span>
+                    </div>
+                </div>
+                <div class="product-card-new">
+                    <div class="product-img-new">
+                        <img src="p4.jpg" alt="governor">
+                        <span class="product-cat-new">CONTROLS</span>
+                    </div>
+                    <div class="product-body-new">
+                        <h4>Governors</h4>
+                        <p>Electronic & hydraulic governors, actuators, speed controllers.</p>
+                    </div>
+                    <div class="product-footer-new">
+                        <a href="#">VIEW <i class="fas fa-arrow-right"></i></a>
+                        <span class="badge-new">REFURB</span>
+                    </div>
+                </div>
+            </div>
+            <div class="all-products-new">
+                <a href="#">EXPLORE FULL RANGE <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- footer tagline + footer (unchanged) -->
+    <section class="footer-tagline">
+        <h2>The Ideal Partner For Engine Parts & Ship Machinery</h2>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='50' viewBox='0 0 250 50'%3E%3Crect width='250' height='50' fill='%232c3e50'/%3E%3Ctext x='20' y='35' font-family='Arial' font-size='28' font-weight='bold' fill='white'%3EGMT MARINE%3C/text%3E%3C/svg%3E" alt="GMT Marine" class="footer-logo">
+                <p>A trusted global provider of marine engine parts, rebuilt machinery, and OEM components with over two decades of excellence.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>CONTACT US</h3>
+                <p>Plot No. 61, Ferry Bander Road, Juna Bander, Bhavnagar - INDIA.</p>
+                <p>Email: sales@gmtmarine.in</p>
+                <p>Tel: +91 9825209873</p>
+            </div>
+            <div class="footer-col">
+                <h3>USEFUL LINKS</h3>
+                <ul class="footer-links">
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#">PRODUCTS</a></li>
+                    <li><a href="#">WORKSHOP</a></li>
+                    <li><a href="#">NEW ARRIVAL</a></li>
+                    <li><a href="#">CONTACT US</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const toggleBtn = document.getElementById("menu-toggle");
+        const navLinks = document.getElementById("nav-links");
+        if (toggleBtn) {
+            toggleBtn.addEventListener("click", function() {
+                navLinks.classList.toggle("show");
+            });
+        }
+        // slider removed (about section uses static image)
+    </script>
+</body>
+</html>

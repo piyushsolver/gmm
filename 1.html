@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GMT Marine India – Professional Marine Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            overflow-x: hidden;
+            background: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== TOP HEADER – PROFESSIONAL WITH ANIMATIONS ===== */
+        .top-header {
+            background: linear-gradient(135deg, #f4f4f4 0%, #ffffff 100%);
+            padding: 15px 0;
+            border-bottom: 1px solid #e0e0e0;
+            position: relative;
+            overflow: hidden;
+            animation: headerGlow 4s infinite alternate;
+        }
+
+        @keyframes headerGlow {
+            0% { box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+            100% { box-shadow: 0 5px 20px rgba(231, 76, 60, 0.15); }
+        }
+
+        .top-header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(231,76,60,0.05) 0%, transparent 70%);
+            animation: rotateGlow 15s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes rotateGlow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            animation: slideInLeft 1s ease;
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .logo-section img {
+            width: 300px;
+            margin-right: 15px;
+            transition: transform 0.4s;
+        }
+
+        .logo-section img:hover {
+            transform: scale(1.02) rotate(-0.5deg);
+        }
+
+        .logo-text h2 {
+            font-size: 18px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .contact-section {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            animation: slideInRight 1s ease;
+        }
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .info-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.4s;
+            padding: 5px 10px;
+            border-radius: 40px;
+        }
+
+        .info-box:hover {
+            background: white;
+            box-shadow: 0 5px 15px rgba(231,76,60,0.15);
+            transform: translateY(-3px);
+        }
+
+        .info-box i {
+            color: #e74c3c;
+            font-size: 18px;
+            transition: transform 0.3s;
+        }
+
+        .info-box:hover i {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .info-box div strong {
+            font-size: 14px;
+            color: #2c3e50;
+        }
+
+        .info-box div p {
+            font-size: 12px;
+            color: #777;
+        }
+
+        .quote-btn {
+            background: #2c3e50;
+            color: #fff;
+            padding: 10px 18px;
+            text-decoration: none;
+            font-size: 13px;
+            transition: all 0.4s;
+            border: 1px solid #2c3e50;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .quote-btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: #e74c3c;
+            transition: left 0.4s;
+            z-index: -1;
+        }
+
+        .quote-btn:hover::before {
+            left: 0;
+        }
+
+        .quote-btn:hover {
+            color: white;
+            border-color: #e74c3c;
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(231,76,60,0.4);
+        }
+
+        /* ===== NAVBAR (ORIGINAL STYLE WITH ANIMATION) ===== */
+        .navbar {
+            background: #2c3e50;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            padding: 15px 20px;
+            position: relative;
+        }
+
+        .nav-links li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+            font-size: 14px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .nav-links li::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: #e74c3c;
+            transition: width 0.3s;
+        }
+
+        .nav-links li:hover::before,
+        .nav-links li.active::before {
+            width: 70%;
+        }
+
+        .nav-links li a:hover {
+            color: #e74c3c;
+        }
+
+        .nav-links li.active a {
+            color: #e74c3c;
+        }
+
+        .menu-toggle {
+            display: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .mobile-logo {
+            display: none;
+        }
+
+        .mobile-logo img {
+            width: 200px;
+        }
+
+        /* ===== HERO SECTION – WITH REAL IMAGE ===== */
+        .hero-section {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            overflow: hidden;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            animation: slowZoom 15s infinite alternate;
+        }
+
+        @keyframes slowZoom {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+
+        .desktop-img { display: block; width: 100%; height: 100%; object-fit: cover; }
+        .mobile-img { display: none; width: 100%; height: 100%; object-fit: cover; }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(44,62,80,0.8) 0%, rgba(231,76,60,0.4) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-overlay h1 {
+            font-size: 64px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            animation: fadeInUp 1.2s ease;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-overlay p {
+            font-size: 24px;
+            animation: fadeInUp 1.2s ease 0.2s both;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .hero-overlay .hero-btn {
+            margin-top: 30px;
+            padding: 15px 40px;
+            background: #e74c3c;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 50px;
+            animation: fadeInUp 1.2s ease 0.4s both;
+            transition: all 0.4s;
+            border: 2px solid transparent;
+        }
+
+        .hero-overlay .hero-btn:hover {
+            background: transparent;
+            border-color: white;
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .hero-section { height: 400px; }
+            .desktop-img { display: none; }
+            .mobile-img { display: block; }
+            .hero-overlay h1 { font-size: 36px; }
+            .hero-overlay p { font-size: 18px; }
+        }
+
+        /* ===== ABOUT SECTION (ANIMATED) ===== */
+        .about-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            position: relative;
+            isolation: isolate;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-slider {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 45px rgba(231, 76, 60, 0.2);
+            transform: perspective(1000px) rotateY(0deg) scale(1);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            animation: floatGlide 6s infinite alternate;
+        }
+
+        .about-slider:hover {
+            transform: perspective(1000px) rotateY(2deg) scale(1.02);
+            box-shadow: 0 35px 55px rgba(231, 76, 60, 0.35);
+        }
+
+        @keyframes floatGlide {
+            0% { transform: translateY(0px) perspective(1000px) rotateY(0deg); }
+            100% { transform: translateY(-12px) perspective(1000px) rotateY(1deg); }
+        }
+
+        .about-slider::before {
+            content: "";
+            position: absolute;
+            bottom: -20px;
+            left: -20px;
+            width: 80%;
+            height: 80%;
+            background: #e74c3c;
+            z-index: 0;
+            border-radius: 20px;
+            opacity: 0.15;
+            transition: 0.4s;
+        }
+
+        .slides {
+            display: none;
+            position: relative;
+            z-index: 2;
+        }
+
+        .slides img {
+            width: 100%;
+            display: block;
+            border-radius: 20px;
+            transition: 0.5s;
+        }
+
+        .fade {
+            animation: fade 1s ease;
+        }
+
+        @keyframes fade {
+            from { opacity: 0.3; }
+            to { opacity: 1; }
+        }
+
+        .dots {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            display: flex;
+            gap: 8px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            background: rgba(255,255,255,0.5);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .dot.active {
+            background: #e74c3c;
+            width: 30px;
+            border-radius: 10px;
+        }
+
+        .experience-wrapper {
+            position: relative;
+            margin-bottom: 20px;
+            padding: 15px 0;
+        }
+
+        .experience-wrapper::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent 0%, #e74c3c 10%, transparent 20%);
+            opacity: 0.1;
+            animation: scrollLine 8s linear infinite;
+        }
+
+        @keyframes scrollLine {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .experience-box {
+            display: flex;
+            align-items: center;
+            background: white;
+            padding: 15px 25px;
+            border-radius: 60px;
+            box-shadow: 0 15px 35px rgba(231, 76, 60, 0.2);
+            width: fit-content;
+            border: 1px solid #f0f0f0;
+            transition: 0.3s;
+        }
+
+        .experience-box:hover {
+            box-shadow: 0 15px 40px rgba(231, 76, 60, 0.4);
+            transform: scale(1.02);
+        }
+
+        .exp-number {
+            font-size: 70px;
+            font-weight: 800;
+            color: #e74c3c;
+            line-height: 1;
+            text-shadow: 2px 2px 4px rgba(231,76,60,0.2);
+            animation: pulseCount 2s infinite alternate;
+        }
+
+        @keyframes pulseCount {
+            0% { text-shadow: 2px 2px 4px rgba(231,76,60,0.2); }
+            100% { text-shadow: 4px 4px 10px rgba(231,76,60,0.5); }
+        }
+
+        .exp-divider {
+            width: 3px;
+            height: 50px;
+            background: #2c3e50;
+            margin: 0 20px;
+        }
+
+        .exp-text {
+            font-weight: 700;
+            letter-spacing: 2px;
+            font-size: 16px;
+            color: #2c3e50;
+        }
+
+        .about-content h2 {
+            font-size: 36px;
+            margin: 20px 0;
+            color: #2c3e50;
+            position: relative;
+            display: inline-block;
+            animation: slideInRight 0.8s ease;
+        }
+
+        .about-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #e74c3c;
+            transition: width 0.4s;
+        }
+
+        .about-content h2:hover::after {
+            width: 100%;
+        }
+
+        .about-content p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+            color: #555;
+            font-size: 15px;
+            transform: translateX(0);
+            transition: 0.3s;
+        }
+
+        .about-content p:hover {
+            color: #2c3e50;
+            transform: translateX(6px);
+        }
+
+        /* ===== SPECIALIZATION SECTION ===== */
+        .specialization-section {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 40px;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+
+        .section-title h2 span {
+            color: #e74c3c;
+        }
+
+        .title-lines {
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: #e74c3c;
+            margin: 15px auto 0;
+            position: relative;
+        }
+
+        .title-lines::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 3px;
+            background: #e74c3c;
+        }
+
+        .specialization-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .spec-box {
+            background: white;
+            padding: 40px 25px;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid #f0f0f0;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .spec-box::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0%;
+            background: #e74c3c;
+            opacity: 0.04;
+            transition: 0.5s;
+            z-index: -1;
+        }
+
+        .spec-box:hover::before {
+            height: 100%;
+        }
+
+        .spec-box:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 30px 45px rgba(231, 76, 60, 0.25);
+            border-color: #e74c3c;
+        }
+
+        .spec-icon {
+            width: 90px;
+            height: 90px;
+            background: #e74c3c;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 40px;
+            color: white;
+            transition: 0.6s;
+        }
+
+        .spec-box:hover .spec-icon {
+            transform: rotateY(360deg) scale(1.1);
+            background: #2c3e50;
+        }
+
+        .spec-box h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            font-weight: 700;
+        }
+
+        .spec-box p {
+            font-size: 14px;
+            line-height: 1.7;
+            color: #666;
+        }
+
+        /* ===== PRODUCTS SECTION ===== */
+        .products-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+            transition: 0.4s;
+            border: 1px solid #f0f0f0;
+        }
+
+        .product-card:hover {
+            transform: scale(1.03) translateY(-8px);
+            box-shadow: 0 25px 45px rgba(231, 76, 60, 0.25);
+        }
+
+        .product-image {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+            background: #f5f5f5;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+            display: block;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+
+        .product-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #2c3e50;
+            position: relative;
+        }
+
+        .product-name {
+            color: white;
+            text-decoration: none;
+            padding: 18px;
+            font-weight: 600;
+            font-size: 14px;
+            flex: 1;
+            transition: 0.3s;
+            letter-spacing: 0.5px;
+        }
+
+        .product-name:hover {
+            color: #e74c3c;
+            padding-left: 25px;
+        }
+
+        .product-plus {
+            background: #e74c3c;
+            color: white;
+            text-decoration: none;
+            padding: 18px 22px;
+            font-size: 22px;
+            font-weight: bold;
+            transition: 0.4s;
+        }
+
+        .product-plus:hover {
+            background: #c0392b;
+            transform: rotate(90deg) scale(1.2);
+        }
+
+        .all-products-btn {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .all-products-btn a {
+            display: inline-block;
+            padding: 15px 45px;
+            background: #2c3e50;
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 2px;
+            border-radius: 40px;
+            transition: 0.4s;
+            border: 2px solid #2c3e50;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+
+        .all-products-btn a:hover {
+            background: #e74c3c;
+            border-color: #e74c3c;
+            transform: scale(1.05);
+            box-shadow: 0 15px 25px rgba(231, 76, 60, 0.4);
+        }
+
+        /* ===== FOOTER (UNCHANGED) ===== */
+        .footer-tagline {
+            background: #e74c3c;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .footer-tagline h2 {
+            color: white;
+            font-family: 'Arial', sans-serif;
+            font-size: 28px;
+            font-weight: 400;
+        }
+
+        .footer {
+            background: #2c3e50;
+            padding: 60px 0 40px;
+            color: #ecf0f1;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        .footer-logo {
+            width: 250px;
+            margin-bottom: 20px;
+            filter: brightness(0) invert(1);
+        }
+
+        .footer-col p {
+            font-size: 14px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            color: #bdc3c7;
+        }
+
+        .footer-col h3 {
+            color: white;
+            margin-bottom: 25px;
+            font-size: 18px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: #e74c3c;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: #34495e;
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .social-icons a:hover {
+            background: #e74c3c;
+            transform: translateY(-3px);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            border-bottom: 1px dashed #34495e;
+            padding: 10px 0;
+        }
+
+        .footer-links li a {
+            color: #bdc3c7;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .footer-links li a:hover {
+            color: #e74c3c;
+            padding-left: 8px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            .specialization-grid,
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-header {
+                display: none;
+            }
+
+            .mobile-logo {
+                display: block;
+            }
+
+            .menu-toggle {
+                display: block;
+                margin-right: 20px;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: #2c3e50;
+                flex-direction: column;
+                display: none;
+                z-index: 999;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .nav-links li {
+                text-align: center;
+                border-top: 1px solid rgba(255,255,255,0.1);
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-slider::before {
+                display: none;
+            }
+
+            .specialization-grid,
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-col h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .social-icons {
+                justify-content: center;
+            }
+
+            .footer-tagline h2 {
+                font-size: 20px;
+            }
+
+            .exp-number {
+                font-size: 50px;
+            }
+
+            .exp-divider {
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- TOP HEADER - WITH PROFESSIONAL ANIMATIONS -->
+    <header class="top-header">
+        <div class="container header-flex">
+            <div class="logo-section">
+                <img src="logo.png" width='300'>
+            </div>
+            <div class="contact-section">
+                <div class="info-box">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <strong>INDIA</strong>
+                        <p>Juna Bander, Bhavnagar</p>
+                    </div>
+                </div>
+                <div class="info-box">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <strong>+91 9825209873</strong>
+                    </div>
+                </div>
+                <a href="#" class="quote-btn">REQUEST A QUOTE</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="container nav-flex">
+            <div class="mobile-logo">
+                <img src="mlogo.png" >
+            </div>
+            <div class="menu-toggle" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li class="active"><a href="#">HOME</a></li>
+                <li><a href="#">PRODUCTS</a></li>
+                <li><a href="#">WORKSHOP</a></li>
+                <li><a href="#">UPDATES</a></li>
+                <li><a href="#">CONTACT US</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION WITH REAL IMAGE -->
+    <section class="hero-section">
+        <img src="bg1.png" alt="Massive container ship at sea" class="desktop-img hero-image">
+        <img src="bg2.png" alt="Massive container ship at sea" class="mobile-img hero-image">
+        <div class="hero-overlay">
+            <h1>MARINE EXCELLENCE</h1>
+            <p>Global Supplier Since 1998</p>
+            <a href="#" class="hero-btn">EXPLORE PRODUCTS</a>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about-section">
+        <div class="container about-grid">
+            <div class="about-slider">
+                <div class="slides fade">
+                    <img src="s1.jpg" alt="Marine Workshop">
+                </div>
+                <div class="slides fade">
+                    <img src="s2.jpg" alt="Engine Parts">
+                </div>
+                <div class="slides fade">
+                    <img src="s1.jpg" alt="Ship Machinery">
+                </div>
+                <div class="dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
+            <div class="about-content">
+                <div class="experience-wrapper">
+                    <div class="experience-box">
+                        <div class="exp-number">25</div>
+                        <div class="exp-divider"></div>
+                        <div class="exp-text">YEARS OF<br>EXPERIENCE</div>
+                    </div>
+                </div>
+                <h2>ABOUT COMPANY</h2>
+                <p>GMT Marine India has a strong legacy in the marine industry, we are a leading global supplier of marine engine parts and rebuilt ship machinery. Our strategically located facility in India & Dubai ensures quick delivery and cost-effective, high-quality solutions tailored to our clients' needs.</p>
+                <p>Driven by a commitment to excellence, innovation, and a customer-first approach, our mission is to deliver reliable, timely, and efficient marine solutions that guarantee complete customer satisfaction.</p>
+                <p>Backed by extensive stock, deep technical expertise, and a skilled engineering team, we ensure every product and service meets the highest standards of performance and integrity.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SPECIALIZATION SECTION -->
+    <section class="specialization-section">
+        <div class="container">
+            <div class="section-title">
+                <h2><span>OUR</span> SPECIALIZATION</h2>
+                <span class="title-lines"></span>
+            </div>
+            <div class="specialization-grid">
+                <div class="spec-box">
+                    <div class="spec-icon">📦</div>
+                    <h3>EXTENSIVE STOCK</h3>
+                    <p>Wide range of engine parts (2-stroke & 4-stroke) and machinery in ready stock with technical reports for immediate delivery.</p>
+                </div>
+                <div class="spec-box">
+                    <div class="spec-icon">👥</div>
+                    <h3>TECHNICAL EXPERTISE</h3>
+                    <p>Abundant experience in supply of engine parts and ship machinery, reconditioning and repair with well experienced team.</p>
+                </div>
+                <div class="spec-box">
+                    <div class="spec-icon">🚚</div>
+                    <h3>ON TIME DELIVERY</h3>
+                    <p>We find it crucial to provide these products at the best possible prices and within a timely delivery schedule.</p>
+                </div>
+                <div class="spec-box">
+                    <div class="spec-icon">✔</div>
+                    <h3>QUALITY ASSURANCE</h3>
+                    <p>Committed to customer satisfaction by delivering high quality parts and machinery within stipulated timeframes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTS SECTION -->
+    <section class="products-section">
+        <div class="container">
+            <div class="section-title">
+                <h2><span>OUR</span> PRODUCTS</h2>
+                <span class="title-lines"></span>
+            </div>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="p1.jpg" alt="Marine Engine Parts">
+                    </div>
+                    <div class="product-bottom">
+                        <a href="#" class="product-name">ENGINE PARTS</a>
+                        <a href="#" class="product-plus">+</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="p2.jpg" alt="Marine Air Compressor">
+                    </div>
+                    <div class="product-bottom">
+                        <a href="#" class="product-name">AIR COMPRESSOR</a>
+                        <a href="#" class="product-plus">+</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="p3.jpg" alt="Hydraulic pump">
+                    </div>
+                    <div class="product-bottom">
+                        <a href="#" class="product-name">HYDRAULIC EQUIP.</a>
+                        <a href="#" class="product-plus">+</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="p4.jpg" alt="Marine Governor">
+                    </div>
+                    <div class="product-bottom">
+                        <a href="#" class="product-name">GOVERNOR</a>
+                        <a href="#" class="product-plus">+</a>
+                    </div>
+                </div>
+            </div>
+            <div class="all-products-btn">
+                <a href="#">ALL PRODUCTS</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER TAGLINE -->
+    <section class="footer-tagline">
+        <h2>The Ideal Partner For Engine Parts & Ship Machinery</h2>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <img src="mlogo.png" alt="GMT Marine" class="footer-logo">
+                <p>A trusted global provider of marine engine parts, rebuilt machinery, and OEM components with over two decades of excellence.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>CONTACT US</h3>
+                <p>Plot No. 61, Ferry Bander Road, Juna Bander, Bhavnagar - INDIA.</p>
+                <p>Email: sales@gmtmarine.in</p>
+                <p>Tel: +91 9825209873</p>
+            </div>
+            <div class="footer-col">
+                <h3>USEFUL LINKS</h3>
+                <ul class="footer-links">
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#">PRODUCTS</a></li>
+                    <li><a href="#">WORKSHOP</a></li>
+                    <li><a href="#">NEW ARRIVAL</a></li>
+                    <li><a href="#">CONTACT US</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const toggleBtn = document.getElementById("menu-toggle");
+        const navLinks = document.getElementById("nav-links");
+
+        if (toggleBtn) {
+            toggleBtn.addEventListener("click", function() {
+                navLinks.classList.toggle("show");
+            });
+        }
+
+        // Image slider
+        let slideIndex = 0;
+        const slides = document.getElementsByClassName("slides");
+        const dots = document.getElementsByClassName("dot");
+
+        if (slides.length > 0) {
+            function showSlides() {
+                for (let i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                
+                for (let i = 0; i < dots.length; i++) {
+                    dots[i].classList.remove("active");
+                }
+                
+                slideIndex++;
+                if (slideIndex > slides.length) {
+                    slideIndex = 1;
+                }
+                
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].classList.add("active");
+                
+                setTimeout(showSlides, 3000);
+            }
+            
+            showSlides();
+        }
+    </script>
+</body>
+</html>
+```
